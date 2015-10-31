@@ -5,7 +5,7 @@ Modding the Windows Discord Client
 - Win + R (Open run)
 - "tskill Discord" + enter (fully shutdown discord) 
 - Download the latest app.asar from http://itsghost.me/app.asar
-- Go to C:\Users\%username%\AppData\Local\Discord\ <Discords Latest Version> \resources
+- Go to C:\Users\%username%\AppData\Local\Discord\ Discords Latest Version \resources
 - Replace the app.asar with the one you freshly downloaded 
 - Open Discord with administrator privileges
 - Enjoy
