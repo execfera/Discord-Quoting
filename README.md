@@ -1,6 +1,8 @@
 # Discord-Client-Modding
 Modding the Windows Discord Client
 
+Important: This should be deemed as a mod loader not competition for other discord clients. They on one side customize internal features, we on the other hand allow custom themes and non-nodejs code to be injected into the internal browser.  
+
 #To install
 - Win + R (Open run)
 - "tskill Discord" + enter (fully shutdown discord) 
