@@ -13,3 +13,6 @@ Modding the Windows Discord Client
 #How to get started modding
 Scripts (JavaScript files to be injected) should be placed in "C:\Discord\Scripts"
 Themes should be placed in "C:\Discord\Styles"
+
+#Contributing
+Be sure to PR your own scripts and themes to keep this project ongoing!
