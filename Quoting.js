@@ -135,7 +135,7 @@ var CDCMQuoting = function(){
             if(key == 8 || key == 46)
                DCMQuoting.resize(this);
         };
-        textArea.style.height = textArea.scrollHeight > textArea.clientHeight ? (textArea.scrollHeight) + "px" : "18px";
+        textArea.style.height = textArea.scrollHeight > textArea.clientHeight ? (textArea.scrollHeight) + "px" : (textArea.value == "" ? "18px" : "80px");
     }
 
     this.clicked = function(messageElement){
