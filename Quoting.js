@@ -3,7 +3,6 @@
 /*
   Crossplatform script
 */
-//META{"name":"DCMQuotingPlugin"}*// 
 
 function DCMQuotingPlugin(){
     var ghostModId = 2;
