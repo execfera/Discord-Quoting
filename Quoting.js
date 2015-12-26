@@ -4,6 +4,7 @@
   Crossplatform script
 */
 
+//This class is for hacky QUOTE INJECTION only
 function DCMQuotingPlugin(){
     var ghostModId = 2;
 
@@ -34,7 +35,7 @@ function DCMQuotingPlugin(){
     };
 
     var inject = function(){
-        DCMQuoting.enabled = true;
+        window.DCMQuoting.enabled = true;
         document.addEventListener("DOMNodeInsertedIntoDocument", function() {
             update();
         }, false);
@@ -55,7 +56,7 @@ function DCMQuotingPlugin(){
     var update = function(){
         if ((typeof(document.getElementsByClassName("messages")[0]) !== 'undefined') 
             && (document.getElementsByClassName("messages")[0] !== null)
-            && (DCMQuoting.enabled)) {
+            && (window.DCMQuoting.enabled)) {
             
             var elements = document.getElementsByClassName("messages")[0]
                 .getElementsByTagName("div");
@@ -117,10 +118,10 @@ var CDCMQuoting = function(){
         
         var comments = element.getElementsByClassName("comment")[0]
             .getElementsByClassName("message");
-        
-        
-       for (i = 0; i < comments.length; i++) {
-            var text = comments[i].getElementsByClassName("markup")[0]
+               
+        var index;
+        for (index = 0; index < comments.length; ++index) {
+            var text = comments[index].getElementsByClassName("markup")[0]
                 .innerText
                 .replace("(edited)", "")
                 .replace("\n\r", "")
@@ -147,7 +148,13 @@ var CDCMQuoting = function(){
         const oldMsg = textArea.value;
         var quote = (oldMsg == "" ? oldMsg : oldMsg + "\n") + message + "\n";    //append if text is already in the text box
         
-        $(textArea).focus().val("").val(quote);
+
+        if ((typeof(betterDiscordIPC) !== 'undefined') && (betterDiscordIPC !== null)) { 
+            $(textArea).focus().val("").val(quote);
+        } else {
+            textArea.value = quote;
+        }
+
         window.DCMQuoting.resize(textArea);
         textArea.scrollTop = textArea.scrollHeight;
     };
@@ -158,7 +165,7 @@ window.DCMQuoting = new CDCMQuoting();
 
 //TODO: http://stackoverflow.com/questions/4386300/javascript-dom-how-to-remove-all-events-of-a-dom-object 
 function removeAllEvents(node, event) {
-    DCMQuoting.enabled = false;
+    window.DCMQuoting.enabled = false;
 };
 
 if (!((typeof(betterDiscordIPC) !== 'undefined') && (betterDiscordIPC !== null))) {
