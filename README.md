@@ -1,12 +1,28 @@
-# Discord-Client-Modding
-Modding the Windows Discord Client
+#### Project is deprecated and outdated
+#### For quoting... look below
+#### For legacy install instructions, see bottom of the page
 
-Important: This should be deemed as a mod loader not competition for other discord clients. They on one side customize internal features, we on the other hand allow custom themes and non-nodejs code to be injected into the internal browser.  
+# Installing quoting with BetterDiscord
+
+- Download and install better discord from https://github.com/Jiiks/BetterDiscordApp/releases
+- Restart Discord
+- Install the quoting.js file into the `%appdata%/BetterDiscord/plugins` folder
+- Restart Discord again
+- Enjoy 
+
+# Installing with Discord Client Modding
+- See "To Install" (scroll down)
+
+# Installing with chrome
+- Install greasemonkey from http://google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo
+- Go to create a new script  chrome-extension://dhdgffkkebhmkfjojejmpbldmpobfkfo/options.html?open=new-user-script
+- Clear everything already inserted into the text area
+- Insert the following http://hastebin.com/bewefuyowi.nginx and then https://raw.githubusercontent.com/NotGGhost/Discord-Client-Modding/master/Quoting.js
 
 #Quoting
 - https://github.com/NotGGhost/Discord-Client-Modding/blob/master/Quoting.js
 
-#To install
+#To install DiscordClientModding
 - Open the run bar (Windows key + R)
 - Terminate the discord process ("tskill Discord")
 - Download the latest app.asar from http://itsghost.me/app.asar
@@ -15,7 +31,7 @@ Important: This should be deemed as a mod loader not competition for other disco
 - Open Discord with administrator privileges
 - Enjoy
 
-#How to get started modding
+#How to get started modding 
 Scripts (JavaScript files to be injected) should be placed in "C:\Discord\Scripts"
 
 Themes (StyleSheet/CSS) should be placed in "C:\Discord\Styles"
