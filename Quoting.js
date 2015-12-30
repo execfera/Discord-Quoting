@@ -1,8 +1,7 @@
 //META{"name":"DCMQuotingPlugin"}*// 
 
-/*
-  Crossplatform script
-*/
+//Crossplatform script... IE 8 -> Chrome -> Better discord "support"
+
 
 //This class is for hacky QUOTE INJECTION only
 function DCMQuotingPlugin(){
@@ -134,12 +133,18 @@ var CDCMQuoting = function(){
     };
 
     this.resize = function(textArea){
-        textArea.onkeydown = function() {
+        const oldSize = textArea.style.height;
+        const newSize = textArea.scrollHeight > textArea.clientHeight ? (textArea.scrollHeight) : (textArea.value == "" ? 18 : 80);
+
+        textArea.style.height = newSize + "px";
+
+        textArea.onkeyup = function() {
             var key = event.keyCode || event.charCode;
-            if(key == 8 || key == 46)
+            if ((key == 8 || key == 46) && (textArea.value.length <= 1))
                window.DCMQuoting.resize(this);
+            if (key == 13) 
+                textArea.style.height = "18px";
         };
-        textArea.style.height = textArea.scrollHeight > textArea.clientHeight ? (textArea.scrollHeight) + "px" : (textArea.value == "" ? "18px" : "80px");
     }
 
     this.clicked = function(messageElement){
@@ -167,6 +172,13 @@ window.DCMQuoting = new CDCMQuoting();
 function removeAllEvents(node, event) {
     window.DCMQuoting.enabled = false;
 };
+
+function getSelectedCount(textArea){
+    var options = textArea.options, count = 0;
+    for (var i=0; i < options.length; i++) 
+        if (options[i].selected) count++;
+    return count;
+}
 
 if (!((typeof(betterDiscordIPC) !== 'undefined') && (betterDiscordIPC !== null))) {
     var str = "Warning: This Discord Quoting script is designed to work in BetterDiscord only!\nHOWEVER it is still trying to load\n\n(Discord Client Modding is deprecated)";
