@@ -2,13 +2,12 @@
 
 //Crossplatform script... IE 8 -> Chrome -> Better discord "support"
 
-
 //This class is for hacky QUOTE INJECTION only
 function DCMQuotingPlugin(){
-    var ghostModId = 2;
+    var ghostModId = 3;
 
     this.load = function(){
-        inject();
+        //inject();
     };
 
     this.start = function(){
@@ -46,7 +45,8 @@ function DCMQuotingPlugin(){
     var createSpan = function(){
         var span = document.createElement("span");
         span.setAttribute("style", "display:inline-block");
-        span.innerText = "Quote";
+        span.innerText = " [quote]";
+        span.className = "timestamp";
         span.setAttribute("onclick", "DCMQuoting.clicked(this);");
         return span;
     };
@@ -108,7 +108,7 @@ var CDCMQuoting = function(){
             .getElementsByClassName("body")[0];
             
         var time = body.getElementsByTagName("h2")[0]
-            .getElementsByTagName("span")[0]
+            .getElementsByTagName("span")[2]
             .innerText
             .replace("Today at ", "");
 
@@ -132,6 +132,8 @@ var CDCMQuoting = function(){
         return msg;
     };
 
+    var shiftPressed = false;
+
     this.resize = function(textArea){
         const oldSize = textArea.style.height;
         const newSize = textArea.scrollHeight > textArea.clientHeight ? (textArea.scrollHeight) : (textArea.value == "" ? 18 : 80);
@@ -142,8 +144,10 @@ var CDCMQuoting = function(){
             var key = event.keyCode || event.charCode;
             if ((key == 8 || key == 46) && (textArea.value.length <= 1))
                window.DCMQuoting.resize(this);
-            if (key == 13) 
+            if ((key == 13) && (!(event.shiftKey))) 
                 textArea.style.height = "18px";
+            if (key == 91)
+                shiftPressed = false;
         };
     }
 
