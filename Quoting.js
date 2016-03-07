@@ -70,9 +70,6 @@ function DCMQuotingPlugin(){
     };
 };
 
-
- 
-
 DCMQuotingPlugin.prototype.getName = function() { 
     return "Quoting"; 
 }; 
@@ -152,11 +149,11 @@ var CDCMQuoting = function(){
 
     this.clicked = function(messageElement){
         var textArea = document.getElementsByTagName("textarea")[0];
+        
         const message = window.DCMQuoting.getMessage(messageElement);
         const oldMsg = textArea.value;
         
         var quote = (oldMsg == "" ? oldMsg : oldMsg + "\n") + message + "\n";    //append if text is already in the text box
-        
 
         if ((typeof(betterDiscordIPC) !== 'undefined') && (betterDiscordIPC !== null)) { 
             $(textArea).focus().val("").val(quote);
@@ -176,13 +173,6 @@ window.DCMQuoting = new CDCMQuoting();
 function removeAllEvents(node, event) {
     window.DCMQuoting.enabled = false;
 };
-
-function getSelectedCount(textArea){
-    var options = textArea.options, count = 0;
-    for (var i=0; i < options.length; i++) 
-        if (options[i].selected) count++;
-    return count;
-}
 
 if (!((typeof(betterDiscordIPC) !== 'undefined') && (betterDiscordIPC !== null))) {
     var str = "Warning: This Discord Quoting script is designed to work in BetterDiscord only!\nHOWEVER it is still trying to load\n\n(Discord Client Modding is deprecated)";
