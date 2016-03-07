@@ -56,18 +56,15 @@ function DCMQuotingPlugin(){
 
     //Still no good way to get all messages with BetterDiscord (afaik meaning I'm probably wrong)... copy OP whilst using a mod id (mod id = expected amount of ghosts scripted installed + 2)
     var update = function(){
-        if ((typeof(document.getElementsByClassName("messages")[0]) !== 'undefined') 
-            && (document.getElementsByClassName("messages")[0] !== null)
+        var messageEle = document.getElementsByClassName("messages")[0];
+        if ((typeof(messageEle !== 'undefined') 
             && (window.DCMQuoting.enabled)) {
-            
-            var elements = document.getElementsByClassName("messages")[0]
-                .getElementsByTagName("div");
+            var elements = messageEle.getElementsByTagName("div");
             for (var i = 0, im = elements.length; im > i; i++) {
-                var element = elements[i]
-                    .getElementsByTagName("span");
+                var element = elements[i].getElementsByTagName("span");
                 for (var ia = 0, ima = element.length; ima > ia; ia++) {
                     var content = element[ia].parentElement.parentElement;
-                    if ((content.className == "body") && (checkVal(content) == ghostModId))
+                    if ((content.className === "body") && (checkVal(content) === ghostModId))
                         content.getElementsByTagName("h2")[0].appendChild(createSpan())
                 }
             }
