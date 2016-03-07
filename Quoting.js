@@ -173,7 +173,7 @@ function removeAllEvents(node, event) {
     window.DCMQuoting.enabled = false;
 };
 
-if (!((typeof(betterDiscordIPC) !== 'undefined') && (betterDiscordIPC !== null))) {
+if (!(typeof(betterDiscordIPC) !== 'undefined')) {
     var str = "Warning: This Discord Quoting script is designed to work in BetterDiscord only!\nHOWEVER it is still trying to load\n\n(Discord Client Modding is deprecated)";
     console.log(str);
     alert(str);
