@@ -6,9 +6,7 @@
 function DCMQuotingPlugin(){
     var ghostModId = 3;
 
-    this.load = function(){
-        //inject();
-    };
+    this.load = function(){};
 
     this.start = function(){
         inject(); 
@@ -25,9 +23,9 @@ function DCMQuotingPlugin(){
     };
 
     var checkVal = function(a){
-        if (typeof a == "undefined")
+        if (typeof a === "undefined")
             return 300;
-        if (typeof a.getElementsByTagName("h2")[0] == "undefined")
+        if (typeof a.getElementsByTagName("h2")[0] === "undefined")
             return 300;
         return a.getElementsByTagName("h2")[0].childNodes.length;
     };
@@ -127,27 +125,28 @@ var CDCMQuoting = function(){
                 .replace("_", "");
                 
             if (!(text == ""))
-                msg = msg + "[" + time + "] " + username + ": _" + text + "_\n" ;
+                msg = msg + "[" + time + "] " + username + ": _" + text + "_\n"; //TODO: string#format (+that too)
         }
         return msg;
     };
-
-    var shiftPressed = false;
-
     this.resize = function(textArea){
         const oldSize = textArea.style.height;
-        const newSize = textArea.scrollHeight > textArea.clientHeight ? (textArea.scrollHeight) : (textArea.value == "" ? 18 : 80);
+        const newSize = textArea.scrollHeight > textArea.clientHeight 
+                    ? textArea.scrollHeight 
+                    : textArea.value == "" 
+                        ? 18 
+                        : 80;
 
         textArea.style.height = newSize + "px";
 
         textArea.onkeyup = function() {
             var key = event.keyCode || event.charCode;
+            
             if ((key == 8 || key == 46) && (textArea.value.length <= 1))
                window.DCMQuoting.resize(this);
+               
             if ((key == 13) && (!(event.shiftKey))) 
                 textArea.style.height = "18px";
-            if (key == 91)
-                shiftPressed = false;
         };
     }
 
@@ -155,6 +154,7 @@ var CDCMQuoting = function(){
         var textArea = document.getElementsByTagName("textarea")[0];
         const message = window.DCMQuoting.getMessage(messageElement);
         const oldMsg = textArea.value;
+        
         var quote = (oldMsg == "" ? oldMsg : oldMsg + "\n") + message + "\n";    //append if text is already in the text box
         
 
