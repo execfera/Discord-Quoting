@@ -157,12 +157,11 @@ var CDCMQuoting = function(){
         
         var quote = (oldMsg == "" ? oldMsg : oldMsg + "\n") + message + "\n";    //append if text is already in the text box
 
-        if (typeof(betterDiscordIPC) !=== 'undefined') { 
+        if (typeof(betterDiscordIPC) !== 'undefined') {
             $(textArea).focus().val(quote);
-        } else {
+        else 
             textArea.value = quote;
-        }
-
+        
         window.DCMQuoting.resize(textArea);
         textArea.scrollTop = textArea.scrollHeight;
     };
