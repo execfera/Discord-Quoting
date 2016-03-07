@@ -13,13 +13,17 @@ function DCMQuotingPlugin(){
     };
 
     this.unload = function(){
-        removeAllEvents(document, "DOMNodeInsertedIntoDocument");
-        removeAllEvents(document, "DOMNodeInserted");
+        this.disable();
     };
 
     this.stop = function(){
-        removeAllEvents(document, "DOMNodeInsertedIntoDocument");
-        removeAllEvents(document, "DOMNodeInserted");
+        this.disable();
+    };
+    
+    this.disable = function(){
+        window.DCMQuoting.enabled = false;
+        //removeAllEvents(document, "DOMNodeInsertedIntoDocument");
+        //removeAllEvents(document, "DOMNodeInserted");
     };
 
     var checkVal = function(a){
@@ -170,7 +174,6 @@ var CDCMQuoting = function(){
 window.DCMQuoting = new CDCMQuoting();
 
 function removeAllEvents(node, event) {
-    window.DCMQuoting.enabled = false;
 };
 
 if (!(typeof(betterDiscordIPC) !== 'undefined')) {
