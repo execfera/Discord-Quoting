@@ -25,13 +25,18 @@ function DCMQuotingPlugin(){
     var checkVal = function(a){
         if (typeof a === "undefined")
             return 300;
-        if (typeof a.getElementsByTagName("h2")[0] === "undefined")
+            
+        var h2 = a.getElementsByTagName("h2")[0];
+        
+        if (typeof h2 === "undefined")
             return 300;
-        return a.getElementsByTagName("h2")[0].childNodes.length;
+            
+        return h2.childNodes.length;
     };
 
     var inject = function(){
         window.DCMQuoting.enabled = true;
+        
         document.addEventListener("DOMNodeInsertedIntoDocument", function() {
             update();
         }, false);
@@ -79,7 +84,7 @@ DCMQuotingPlugin.prototype.getDescription = function() {
 }; 
  
 DCMQuotingPlugin.prototype.getVersion = function() { 
-    return "0.1.7"; 
+    return "0.1.9"; 
 }; 
 
 DCMQuotingPlugin.prototype.getAuthor = function() { 
@@ -139,10 +144,10 @@ var CDCMQuoting = function(){
         textArea.onkeyup = function() {
             var key = event.keyCode || event.charCode;
             
-            if ((key == 8 || key == 46) && (textArea.value.length <= 1))
+            if (((key == 8) || (key == 46)) && (textArea.value.length < 0))
                window.DCMQuoting.resize(this);
                
-            if ((key == 13) && (!(event.shiftKey))) 
+            if ((key == 13) && (!event.shiftKey)) 
                 textArea.style.height = "18px";
         };
     }
@@ -168,8 +173,6 @@ var CDCMQuoting = function(){
 
 window.DCMQuoting = new CDCMQuoting();
 
-
-//TODO: http://stackoverflow.com/questions/4386300/javascript-dom-how-to-remove-all-events-of-a-dom-object 
 function removeAllEvents(node, event) {
     window.DCMQuoting.enabled = false;
 };
