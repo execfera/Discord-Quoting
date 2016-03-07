@@ -6,9 +6,6 @@
 - Restart Discord again
 - Enjoy 
 
-# Installing with Discord Client Modding
-- See "To Install" (scroll down)
-
 # Installing with chrome
 - Install greasemonkey from http://google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo
 - Go to create a new script  chrome-extension://dhdgffkkebhmkfjojejmpbldmpobfkfo/options.html?open=new-user-script
