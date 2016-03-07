@@ -5,7 +5,7 @@
 //This class is for hacky QUOTE INJECTION only
 function DCMQuotingPlugin(){
     var ghostModId = 3;
-
+    
     this.load = function(){};
 
     this.start = function(){
@@ -130,6 +130,7 @@ var CDCMQuoting = function(){
             if (!(text == ""))
                 msg = msg + "[" + time + "] " + username + ": _" + text + "_\n"; //TODO: string#format (+that too)
         }
+        
         return msg;
     };
     this.resize = function(textArea){
@@ -172,9 +173,6 @@ var CDCMQuoting = function(){
 };
 
 window.DCMQuoting = new CDCMQuoting();
-
-function removeAllEvents(node, event) {
-};
 
 if (!(typeof(betterDiscordIPC) !== 'undefined')) {
     var str = "Warning: This Discord Quoting script is designed to work in BetterDiscord only!\nHOWEVER it is still trying to load\n\n(Discord Client Modding is deprecated)";
