@@ -173,10 +173,3 @@ var CDCMQuoting = function(){
 };
 
 window.DCMQuoting = new CDCMQuoting();
-
-if (!(typeof(betterDiscordIPC) !== 'undefined')) {
-    var str = "Warning: This Discord Quoting script is designed to work in BetterDiscord only!\nHOWEVER it is still trying to load\n\n(Discord Client Modding is deprecated)";
-    console.log(str);
-    alert(str);
-    new DCMQuotingPlugin().start();
-}
