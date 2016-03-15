@@ -61,7 +61,7 @@ function DCMQuotingPlugin(){
     //Still no good way to get all messages with BetterDiscord (afaik meaning I'm probably wrong)... copy OP whilst using a mod id (mod id = expected amount of ghosts scripted installed + 2)
     var update = function(){
         var messageEle = document.getElementsByClassName("messages")[0];
-        if ((typeof(messageEle !== 'undefined')) 
+        if ((typeof(messageEle) !== 'undefined') 
             && (window.DCMQuoting.enabled)) {
             var elements = messageEle.getElementsByTagName("div");
             for (var i = 0, im = elements.length; im > i; i++) {
