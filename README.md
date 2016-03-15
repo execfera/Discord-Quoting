@@ -1,4 +1,4 @@
-# Install quoting with BetterDiscord
+# Install with BetterDiscord
 
 - Download and install better discord from https://github.com/Jiiks/BetterDiscordApp/releases
 - Restart Discord
