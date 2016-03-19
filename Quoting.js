@@ -173,3 +173,6 @@ var CDCMQuoting = function(){
 };
 
 window.DCMQuoting = new CDCMQuoting();
+
+if (!(typeof(betterDiscordIPC) !== 'undefined')) 
+     new DCMQuotingPlugin().start();
