@@ -27,12 +27,12 @@ function DCMQuotingPlugin(){
     };
 
     var checkVal = function(a){
-        if (typeof a === "undefined")
+        if ((typeof(a)) === "undefined")
             return 300;
             
         var h2 = a.getElementsByTagName("h2")[0];
         
-        if (typeof h2 === "undefined")
+        if ((typeof(h2)) === "undefined")
             return 300;
             
         return h2.childNodes.length;
