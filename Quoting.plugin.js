@@ -128,7 +128,7 @@ var CDCMQuoting = function(){
                 .replace("_", "");
                 
             if (!(text == ""))
-                msg = msg + "[" + time + "] " + username + ": _" + text + "_\n"; //TODO: string#format (+that too)
+                msg = msg + "[" + time + "] " + username + ": " + text + "\n"; //TODO: string#format (+that too)
         }
         
         return msg;
@@ -160,7 +160,13 @@ var CDCMQuoting = function(){
         const message = window.DCMQuoting.getMessage(messageElement);
         const oldMsg = textArea.value;
         
-        var quote = (oldMsg == "" ? oldMsg : oldMsg + "\n") + message + "\n";    //append if text is already in the text box
+        var quote;
+			if (oldMsg == "")
+				quote = oldMsg + "```" + message + "```\n";
+			else if (oldMsg.slice(-4) == "```\n")
+				quote = oldMsg.substr(0,oldMsg.length - 4) + message + "```\n";    //append to previous quote if one exists in the text box
+			else
+				quote = oldMsg + "\n```" + message + "```\n";					   //append flatly if no quote is found but text exists
 
         if (typeof(betterDiscordIPC) !== 'undefined') 
             $(textArea).focus().val(quote);
