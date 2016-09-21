@@ -13,4 +13,4 @@
 - Insert the following http://hastebin.com/bewefuyowi.nginx and then https://raw.githubusercontent.com/execfera/Discord-Quoting/master/Quoting.plugin.js
 
 #Quoting
-- https://github.com/NotGGhost/Discord-Client-Modding/blob/master/Quoting.js
+- https://raw.githubusercontent.com/execfera/Discord-Quoting/master/Quoting.plugin.js
