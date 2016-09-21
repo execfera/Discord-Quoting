@@ -10,7 +10,7 @@
 - Install greasemonkey from http://google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo
 - Go to create a new script  chrome-extension://dhdgffkkebhmkfjojejmpbldmpobfkfo/options.html?open=new-user-script
 - Clear everything already inserted into the text area
-- Insert the following http://hastebin.com/bewefuyowi.nginx and then https://raw.githubusercontent.com/NotGGhost/Discord-Client-Modding/master/Quoting.js
+- Insert the following http://hastebin.com/bewefuyowi.nginx and then https://raw.githubusercontent.com/execfera/Discord-Quoting/master/Quoting.plugin.js
 
 #Quoting
 - https://github.com/NotGGhost/Discord-Client-Modding/blob/master/Quoting.js
