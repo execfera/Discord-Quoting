@@ -162,11 +162,11 @@ var CDCMQuoting = function(){
         
         var quote;
 			if (oldMsg == "")
-				quote = oldMsg + "```" + message + "```\n";
+				quote = oldMsg + "```fix\n" + message + "```\n";
 			else if (oldMsg.slice(-4) == "```\n")
 				quote = oldMsg.substr(0,oldMsg.length - 4) + message + "```\n";    //append to previous quote if one exists in the text box
 			else
-				quote = oldMsg + "\n```" + message + "```\n";					   //append flatly if no quote is found but text exists
+				quote = oldMsg + "\n```asciidoc\n" + message + "```\n";					   //append flatly if no quote is found but text exists
 
         if (typeof(betterDiscordIPC) !== 'undefined') 
             $(textArea).focus().val(quote);
